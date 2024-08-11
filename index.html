@@ -1,0 +1,101 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marquee Text Animation</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="Y2meta.app - Rachmaninoff - Elegie (Op. 3 No. 1) (128 kbps).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audioElement = document.getElementById('backgroundMusic');
+            audioElement.volume = 0.15; // Set volume to 15%
+        });
+    </script>
+    <div id="loader">
+    <div class="marquee">
+      <h3>
+        <div class="marquee-wrapper">
+          <div class="marquee-title">
+            / zealous <span class="text-stroke-black">creat</span>
+            &amp; istablish 
+            <span class="text-stroke-black">for</span>  you
+            
+          </div>
+          <div class="marquee-title">
+            / We think <span class="text-stroke-black">creative</span>
+            &amp; make them
+            <span class="text-stroke-black">easy</span> / We think
+            <span class="text-stroke-black">creative</span>
+            &amp; make them
+            <span class="text-stroke-black">easy</span>
+          </div>
+        </div>
+      </h3>
+    </div>
+</div>
+<div class="container">
+    <div class="wrapper">
+      <div class="banner-image"> </div>
+      <h1> Alaa Maan</h1>
+      <p>
+        Chief executive officer </p>
+     </div>
+     <div class="button-wrapper"> 
+        <a href=""><button style=" margin-top:20px; margin-right: 10px;" class="btn outline">Phone</button></a>
+        <a href=""><button style="margin-bottom: 20px; margin-left: 10px;" class="btn outline" >Email</button></a>
+        <br>
+        <a href=""><button class="btn outline" id="saveContactButton">Save</button></a>
+     </div>
+       </div>
+   </div>
+  </body>
+  <script src="jave.js"></script>
+  <script>
+    document.getElementById('saveContactButton').addEventListener('click', function() {
+        var name = 'Alaa Maan'; // Replace with your contact's name
+        var phone = '+971567628776'; // Replace with your contact's phone number
+        var email = 'alaa@zealous.ae'; // Replace with your contact's email
+        var company = 'ZEALOUS'; // Replace with your contact's company name
+        var photoURL = 'must field with url for the photo'; // Replace with your contact's photo URL
+
+        var vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+ORG:${company}
+TEL:${phone}
+EMAIL:${email}
+PHOTO;VALUE=URI:${photoURL}
+END:VCARD`;
+
+        var blob = new Blob([vCard], { type: 'text/vcard' });
+        var url = URL.createObjectURL(blob);
+
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'contact.vcf';
+        a.click();
+
+        URL.revokeObjectURL(url);
+    });
+</script>
+
+</html>
